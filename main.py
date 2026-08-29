@@ -3,13 +3,14 @@ import smtplib
 import time
 import requests
 from datetime import datetime,timezone
+import os
 
 MY_LAT = 19.209792 
 MY_LONG = 73.099429 
 
 
-MY_EMAIL = "varad3445@gmail.com"
-MY_PASSWORD = ""
+my_email = os.environ.get("MY_EMAIL")
+password = os.environ.get("MY_PASSWORD")
 
 
 def is_iss_overhead():
@@ -56,7 +57,7 @@ def send_email():
             connection.starttls()
             connection.login(user=MY_EMAIL,password=MY_PASSWORD)
             connection.sendmail(from_addr=MY_EMAIL,
-                                to_addrs="varadranade1098@gmail.com",
+                                to_addrs=MY_EMAIL,
                                 msg="Subject:Look Up! 🌌\n\nThe ISS is passing over your location right now!")
         print("Email sent successfully")
     except Exception as e:
