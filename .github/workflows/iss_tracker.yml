@@ -2,9 +2,10 @@ name: Run ISS Tracker
 
 on:
   schedule:
-    # Runs automatically at the start of every hour
-    - cron: '0 * * * *'
-  workflow_dispatch: # Allows you to run it manually anytime
+    # This tells GitHub to run the script exactly every 2 hours
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
 
 jobs:
   run-tracker:
