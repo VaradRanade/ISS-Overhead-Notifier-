@@ -66,14 +66,12 @@ def send_email():
 
 
 print("ISS Tracker started. Press Ctrl+C to stop.")
-while True:
-    if is_iss_overhead() and is_night():
-        print("ISS is overhead and it's dark! Sending email...")
-        send_email()
-    else:
-        print(f"Checked at {datetime.now()}: Conditions not met.")
-    time.sleep(60)
-
+print("ISS Tracker checking conditions...")
+if is_iss_overhead() and is_night():
+    print("ISS is overhead and it's dark! Sending email...")
+    send_email()
+else:
+    print(f"Checked at {datetime.now()}: Conditions not met.")
 
 
 
