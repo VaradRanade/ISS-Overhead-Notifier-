@@ -53,11 +53,12 @@ def is_night():
 
 def send_email():
     try:
-        with smtplib.SMTP("smtp.gmail.com",587) as connection:
+        with smtplib.SMTP("smtp.gmail.com", 587) as connection:
             connection.starttls()
-            connection.login(user=MY_EMAIL,password=MY_PASSWORD)
-            connection.sendmail(from_addr=MY_EMAIL,
-                                to_addrs=MY_EMAIL,
+            # Changed to lowercase variables to match your top definitions
+            connection.login(user=my_email, password=password)
+            connection.sendmail(from_addr=my_email,
+                                to_addrs=my_email,
                                 msg="Subject:Look Up! 🌌\n\nThe ISS is passing over your location right now!")
         print("Email sent successfully")
     except Exception as e:
